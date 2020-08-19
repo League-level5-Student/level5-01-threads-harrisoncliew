@@ -12,6 +12,17 @@ public class AdvancedRobotRace {
 	static boolean keepGoing = true;
 	static int winner=0;
 	static Random r = new Random();
+	static boolean winnerset = false;
+	
+	static void setWinner(int winnertemp) {
+		if(winnerset==false) {
+			winner = winnertemp;
+			winnerset = true;
+			JOptionPane.showMessageDialog(null, "The winner is robot "+winner+". A party has been thrown for the robot." );
+		}
+	}
+	
+	
 	public static void main(String[] args) {
 		Robot[] robots;
 		robots = new Robot[10];
@@ -46,7 +57,8 @@ public class AdvancedRobotRace {
 			robots[0].move(r.nextInt(51));
 			if(robots[0].getY()<=0) {
 				keepGoing = false;
-				winner = 1;
+				setWinner(1);
+				
 			}
 			
 		} });
@@ -55,7 +67,8 @@ public class AdvancedRobotRace {
 			robots[1].move(r.nextInt(51));
 			if(robots[1].getY()<=0) {
 				keepGoing = false;
-				winner = 2;
+				setWinner(2);
+				
 			}
 			
 		} });
@@ -64,7 +77,8 @@ public class AdvancedRobotRace {
 			robots[2].move(r.nextInt(51));
 			if(robots[2].getY()<=0) {
 				keepGoing = false;
-				winner = 3;
+				setWinner(3);
+				
 			}
 			
 		} });
@@ -73,7 +87,8 @@ public class AdvancedRobotRace {
 			robots[3].move(r.nextInt(51));
 			if(robots[3].getY()<=0) {
 				keepGoing = false;
-				winner = 4;
+				setWinner(4);
+				
 			}
 			
 		} });
@@ -82,7 +97,8 @@ public class AdvancedRobotRace {
 			robots[4].move(r.nextInt(51));
 			if(robots[4].getY()<=0) {
 				keepGoing = false;
-				winner = 5;
+				setWinner(5);
+				
 			}
 			
 		} });
@@ -91,7 +107,8 @@ public class AdvancedRobotRace {
 			robots[5].move(r.nextInt(51));
 			if(robots[5].getY()<=0) {
 				keepGoing = false;
-				winner = 6;
+				setWinner(6);
+				
 			}
 			
 		} });
@@ -100,7 +117,8 @@ public class AdvancedRobotRace {
 			robots[6].move(r.nextInt(51));
 			if(robots[6].getY()<=0) {
 				keepGoing = false;
-				winner = 7;
+				setWinner(7);
+				
 			}
 			
 		} });
@@ -109,7 +127,7 @@ public class AdvancedRobotRace {
 			robots[7].move(r.nextInt(51));
 			if(robots[7].getY()<=0) {
 				keepGoing = false;
-				winner = 8;
+				setWinner(8);
 			}
 			
 		} });
@@ -118,7 +136,7 @@ public class AdvancedRobotRace {
 			robots[8].move(r.nextInt(51));
 			if(robots[8].getY()<=0) {
 				keepGoing = false;
-				winner = 9;
+				setWinner(9);
 			}
 			
 		} });
@@ -127,7 +145,7 @@ public class AdvancedRobotRace {
 			robots[9].move(r.nextInt(51));
 			if(robots[9].getY()<=0) {
 				keepGoing = false;
-				winner = 10;
+				setWinner(10);
 			}
 			
 		} });
@@ -143,9 +161,12 @@ public class AdvancedRobotRace {
 		r8.start();
 		r9.start();
 		
-		int numwinner = winner;
-
-		JOptionPane.showMessageDialog(null, "The winner is robot "+numwinner+". A party has been thrown for the robot." );
+		while(true) {
+			if(keepGoing==false) {
+				JOptionPane.showMessageDialog(null, "The winner is robot "+winner+". A party has been thrown for the robot." );
+				break;
+			}
+		}
 
 	}
 }
